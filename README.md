@@ -11,9 +11,9 @@
 
 ## Getting Started
 
-You have add file .env.local and writing NEXT_PUBLIC_PRODUCTS=URLS_API, to connect the product API with the APP.
+First You have add file .env.local and writing NEXT_PUBLIC_PRODUCTS=URLS_API, to connect the product API with the APP.
 
-First, run the development server:
+Second, run the development server:
 
 ```bash
 npm run dev
