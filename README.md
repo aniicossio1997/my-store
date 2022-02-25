@@ -2,8 +2,6 @@
 
 TO visit my site [GO](https://my-store-ashy.vercel.app/)
 
-![alt text](https://github.com/aniicossio1997/my-store/blob/main/my_store.png)
-
 ## Technologies
 -  NodeJS
 -  Next
@@ -11,6 +9,9 @@ TO visit my site [GO](https://my-store-ashy.vercel.app/)
 -  Redux
 -  Chakra UI
 -  Eslint
+
+![alt text](https://github.com/aniicossio1997/my-store/blob/main/my_store.png)
+
 
 ## Getting Started
 
