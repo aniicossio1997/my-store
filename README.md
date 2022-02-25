@@ -1,6 +1,6 @@
-## STORE with Typescript and Next
+# STORE with Next and Typescript
 
-TO visit my site [GO](https://my-store-ashy.vercel.app/)
+To visit my site [GO](https://my-store-ashy.vercel.app/)
 
 ## Technologies
 -  NodeJS
@@ -25,7 +25,7 @@ npm run dev
 yarn dev
 ```
 
-And open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+And then open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
