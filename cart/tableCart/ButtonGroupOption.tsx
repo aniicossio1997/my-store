@@ -3,34 +3,36 @@ import PropTypes from "prop-types";
 import { Button, ButtonGroup } from "@chakra-ui/react";
 import { BtnOption } from "./BtnOption";
 import { ICartItem } from "../type";
-import { Product } from "../../product/types";
+import { useAppDispatch } from "../../app/hooks";
+import { addToCart, removeAnItemToCart } from "../redux/cartSlice";
+
 interface IProps {
-  handleRemoveProductCart?: (product: ICartItem) => void;
-  addProduct?: (product: ICartItem) => void;
   product: ICartItem;
+  [rest: string]: any;
 }
-export const ButtonGroupOption = ({
-  handleRemoveProductCart,
-  product,
-  addProduct,
-}: IProps) => {
+
+export const ButtonGroupOption = ({ product, ...rest }: IProps) => {
+  const dispatch = useAppDispatch();
+
   return (
     <>
       <ButtonGroup size="sm" isAttached>
         <BtnOption
-          handleProductCart={handleRemoveProductCart}
+          // handleProductCart={handleRemoveProductCart}
           product={product}
           typeBtn="-"
           colorScheme={"red"}
+          evenonclick={() => dispatch(removeAnItemToCart(product))}
         />
         <Button mr="-px" cursor={"pointer"}>
           {product.count}
         </Button>
         <BtnOption
-          handleProductCart={addProduct}
+          // handleProductCart={addProduct}
           product={product}
           typeBtn="+"
           colorScheme={"blue"}
+          evenonclick={() => dispatch(addToCart(product))}
         />
       </ButtonGroup>
     </>

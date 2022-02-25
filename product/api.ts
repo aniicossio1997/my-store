@@ -1,8 +1,8 @@
 import axios from "axios";
-import { Product } from "./types";
 import Papa from "papaparse";
+import { IProduct } from "./redux/productsSlice";
 export default {
-  list: (): Promise<Product[]> => {
+  list: (): Promise<IProduct[]> => {
     const publicProducts = process.env.NEXT_PUBLIC_PRODUCTS || "";
     return axios
       .get(publicProducts, {
@@ -10,11 +10,11 @@ export default {
       })
       .then(
         (response) =>
-          new Promise<Product[]>((resolve, reject) => {
+          new Promise<IProduct[]>((resolve, reject) => {
             Papa.parse(response.data, {
               header: true,
               complete: (results) => {
-                const products = results.data as Product[];
+                const products = results.data as IProduct[];
                 return resolve(
                   products.map((product) => ({
                     ...product,

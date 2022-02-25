@@ -7,14 +7,14 @@ import { useDisclosure } from "@chakra-ui/react";
 type Amount = () => number | string;
 interface AppContextInterface {
   cart: ICartItem[];
-  addProduct?: (product: Product) => void;
+  addProduct: (product: Product) => void;
   amountItemsCart: Amount;
   amountPriceCart: Amount;
-  isOpen?: boolean;
-  onOpen?: () => void;
-  onClose?: () => void;
-  handleRemoveProductCart?: (product: ICartItem) => void;
-  hadlerRemoveAllProductCart?: (product: ICartItem) => void;
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+  handleRemoveProductCart: (product: ICartItem) => void;
+  hadlerRemoveAllProductCart: (product: ICartItem) => void;
 }
 
 export const CartContext = React.createContext<AppContextInterface>({
@@ -22,6 +22,11 @@ export const CartContext = React.createContext<AppContextInterface>({
   amountPriceCart: () => 0,
   amountItemsCart: () => 0,
   isOpen: false,
+  handleRemoveProductCart: function (product: ICartItem) {},
+  hadlerRemoveAllProductCart: function (product: ICartItem) {},
+  onClose: function () {},
+  addProduct: function (product: Product) {},
+  onOpen: function () {},
 });
 
 const CartProvider: React.FC = (props) => {

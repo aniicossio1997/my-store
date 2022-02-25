@@ -2,6 +2,8 @@ import { Button, Flex, Image, Stack, Tag, Text } from "@chakra-ui/react";
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import React, { useState } from "react";
 import { Product } from "./types";
+import { addToCart } from "../cart/redux/cartSlice";
+import { useAppDispatch } from "../app/hooks";
 
 function parseCurrency(value: number): string {
   return value.toLocaleString("es-AR", {
@@ -11,15 +13,15 @@ function parseCurrency(value: number): string {
 }
 interface Props {
   product: Product;
-  addProduct: (product: Product) => void;
 }
 
-const ItemProduct = ({ product, addProduct }: Props) => {
+const ItemProduct = ({ product }: Props) => {
   const [selectedImg, setSelectImg] = useState<string | null>(null);
+  const dispatch = useAppDispatch();
 
   return (
     <>
-      <AnimateSharedLayout type={"crossfade"}>
+      <AnimateSharedLayout>
         <Stack
           backgroundColor={"whiteAlpha.600"}
           height={"380px"}
@@ -58,9 +60,9 @@ const ItemProduct = ({ product, addProduct }: Props) => {
 
           <Button
             isDisabled={product.stock <= 0 && true}
-            onClick={() => addProduct(product)}
             variant={"outline"}
             colorScheme={"blue"}
+            onClick={() => dispatch(addToCart(product))}
           >
             Agregar +
           </Button>

@@ -16,32 +16,34 @@ import TableCart from "./TableCart";
 import { parseCurrency } from "../product/types";
 import IconCart from "./IconCart";
 import { FaWhatsapp } from "react-icons/fa";
+import { getMemoizeNumItems, getTotalPrice } from "./redux/cartSlice";
+import { useAppSelector } from "../app/hooks";
 
 const index = () => {
   const btnRef = useRef(null);
-  const { amountItemsCart, amountPriceCart, onOpen, isOpen, onClose, cart } =
-    useCartContext();
+  const { onOpen, isOpen, onClose, cart } = useCartContext();
+  const priceItemsCart = useAppSelector(getTotalPrice);
+  const itemsCart = useAppSelector((store) => store.cart.items);
+  const text = React.useMemo(() => {
+    return itemsCart
+      .reduce(
+        (message, product) =>
+          message.concat(
+            `* ${product.title} ${parseCurrency(product.price)} cantidad: ${
+              product.count
+            }\n`
+          ),
+        ``
+      )
+      .concat(`\nTotal: ${parseCurrency(priceItemsCart)}`);
+  }, [itemsCart]);
+  const numItemsCart = useAppSelector(getMemoizeNumItems);
 
-  const text = React.useMemo(
-    () =>
-      cart
-        .reduce(
-          (message, product) =>
-            message.concat(
-              `* ${product.title} ${parseCurrency(product.price)} cantidad: ${
-                product.count
-              }\n`
-            ),
-          ``
-        )
-        .concat(`\nTotal: ${amountPriceCart()}`),
-    [cart]
-  );
   return (
     <>
       <IconCart
         btnRef={btnRef}
-        amountItemsCart={amountItemsCart}
+        amountItemsCart={numItemsCart}
         onOpen={onOpen}
       />
       <Drawer

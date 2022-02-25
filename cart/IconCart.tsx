@@ -3,7 +3,7 @@ import React from "react";
 import { BiCartAlt } from "react-icons/bi";
 interface IProps {
   btnRef: React.MutableRefObject<null>;
-  amountItemsCart: () => string | number;
+  amountItemsCart: number;
   onOpen: (() => void) | undefined;
 }
 const IconCart = ({ btnRef, amountItemsCart, onOpen }: IProps) => {
@@ -25,7 +25,7 @@ const IconCart = ({ btnRef, amountItemsCart, onOpen }: IProps) => {
           borderRadius="full"
           color={"green.500"}
         >
-          {amountItemsCart()}
+          {amountItemsCart}
         </Text>
         <Icon display={"block"} w={7} h={7} as={BiCartAlt} />
       </Button>
