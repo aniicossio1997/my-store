@@ -1,24 +1,15 @@
 import type { GetStaticProps } from "next";
-import {
-  Stack,
-  SimpleGrid,
-  Input,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-  CloseButton,
-} from "@chakra-ui/react";
+import { Stack, SimpleGrid, Alert, AlertIcon } from "@chakra-ui/react";
 import { Product } from "../product/types";
-import React, { useState } from "react";
+import React from "react";
 import api from "../product/api";
 import ItemProduct from "../product/ItemProduct";
 import { useCartContext } from "../context/cartContext";
 import BtnCart from "../cart/BtnCart";
-import { AnimateSharedLayout, motion } from "framer-motion";
+import { AnimateSharedLayout } from "framer-motion";
 import InputSearch from "../components/inputsearch";
 import useProductFilter from "../product/useProductFilter";
-import { useAppSelector, useAppDispatch } from "../app/hooks";
+import { useAppSelector } from "../app/hooks";
 import { getMemoizeNumItems } from "../cart/redux/cartSlice";
 interface Props {
   products: Product[];
