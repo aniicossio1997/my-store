@@ -25,12 +25,9 @@ interface Props {
 }
 
 const IndexRoute: React.FC<Props> = ({ products }) => {
-  const { addProduct, amountItemsCart, onOpen } = useCartContext();
+  const { onOpen } = useCartContext();
   const { handleSearchChange, search, filterProducts } =
     useProductFilter(products);
-  const dispatch = useAppDispatch();
-  const productsv1 = useAppSelector((state) => state.products.products);
-  const productsv2 = Object.values(productsv1);
   const numItemsCart = useAppSelector(getMemoizeNumItems);
 
   return (
