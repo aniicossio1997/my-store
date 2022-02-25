@@ -1,13 +1,16 @@
 ## STORE with Typescript and Next
 
-## Technologies
+TO visit my site [GO](https://my-store-ashy.vercel.app/)
 
-- 1. NodeJS
-- 2. Next
-- 3. Typescript
-- 4. Redux
-- 5. Chakra UI
-- 6. Eslint
+![alt text](https://github.com/aniicossio1997/my-store/blob/main/my_store.png)
+
+## Technologies
+-  NodeJS
+-  Next
+-  Typescript
+-  Redux
+-  Chakra UI
+-  Eslint
 
 ## Getting Started
 
@@ -21,7 +24,7 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+And open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
