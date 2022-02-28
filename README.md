@@ -1,5 +1,7 @@
 # STORE with Next and Typescript
 
+This site is an online store, where you can put together a purchase and the store owner will receive the order request via WhatsApp.
+
 To visit my site [GO](https://my-store-ashy.vercel.app/)
 
 ## Technologies
